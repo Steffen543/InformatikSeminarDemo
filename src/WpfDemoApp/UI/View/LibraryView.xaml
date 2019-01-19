@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="WpfDemoApp.UI.View.LibraryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfDemoApp.UI.View"
+             xmlns:viewModel="clr-namespace:WpfDemoApp.UI.ViewModel"
+             xmlns:model="clr-namespace:WpfDemoApp.Model"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <viewModel:LibraryViewModel x:Name="LibraryViewModel" />
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="100" />
+        </Grid.ColumnDefinitions>
+        <ListBox 
+            Grid.Column="0" 
+            x:Name="BookListBox" 
+            SelectedItem="{Binding SelectedBook, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+            ItemsSource="{Binding Books, UpdateSourceTrigger=PropertyChanged}">
+            <ListBox.Resources>
+                <DataTemplate DataType="{x:Type model:Book}">
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name}" FontWeight="Bold" />
+                        <TextBlock Text="{Binding Author}" FontSize="10" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.Resources>
+        </ListBox>
+        <ContentPresenter
+            Grid.Column="1"
+            Content="{Binding SelectedBook}">
+            <ContentPresenter.Resources>
+                <DataTemplate DataType="{x:Type model:Book}">
+                    <local:BookView 
+                        DataContext="{Binding}"
+                        Margin="10"/>
+                </DataTemplate>
+            </ContentPresenter.Resources>
+
+        </ContentPresenter>
+        <StackPanel Grid.Column="2">
+            <Button 
+                Content="Speichern"
+                Command="{Binding SaveCommand}"
+                Margin="5"/>
+            <Button 
+                Content="Löschen"
+                Command="{Binding DeleteCommand}"
+                Margin="5" />
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -7,7 +7,20 @@
         xmlns:view="clr-namespace:WpfDemoApp.UI.View"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <view:LibraryView />
-    </Grid>
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Padding" Value="5" />
+        </Style>
+    </Window.Resources>
+    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+        <Button Click="ButtonClick" Content="ExampleWindow" />
+        <Button Click="ButtonClick" Content="ExampleResource" />
+        <Button Click="ButtonClick" Content="ExampleBinding" />
+        <Button Click="ButtonClick" Content="ExampleConverter" />
+        <Button Click="ButtonClick" Content="ExampleStyle" />
+        <Button Click="ButtonClick" Content="ExampleDataTemplate" />
+        <Button Click="ButtonClick" Content="ExampleMVVM" />
+        <Button Click="ButtonClick" Content="ExampleDevExpressMVVM" />
+    </StackPanel>
 </Window>

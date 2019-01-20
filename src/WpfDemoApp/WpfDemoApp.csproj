@@ -62,6 +62,34 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataBase\BookDatabase.cs" />
+    <Compile Include="Examples\Controls\ExampleControl.xaml.cs">
+      <DependentUpon>ExampleControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Examples\ExampleBinding.xaml.cs">
+      <DependentUpon>ExampleBinding.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Examples\ExampleConverter.xaml.cs">
+      <DependentUpon>ExampleConverter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Examples\ExampleDataTemplates.xaml.cs">
+      <DependentUpon>ExampleDataTemplates.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Examples\ExampleDevExpressMVVM.xaml.cs">
+      <DependentUpon>ExampleDevExpressMVVM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Examples\ExampleMVVM.xaml.cs">
+      <DependentUpon>ExampleMVVM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Examples\ExampleResources.xaml.cs">
+      <DependentUpon>ExampleResources.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Examples\ExampleStyle.xaml.cs">
+      <DependentUpon>ExampleStyle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Examples\ExampleWindow.xaml.cs">
+      <DependentUpon>ExampleWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="UI\ViewModel\LibraryViewModel.cs" />
     <Compile Include="UI\View\BookView.xaml.cs">
       <DependentUpon>BookView.xaml</DependentUpon>
@@ -69,6 +97,42 @@
     <Compile Include="UI\View\LibraryView.xaml.cs">
       <DependentUpon>LibraryView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Examples\Controls\ExampleControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Examples\ExampleBinding.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Examples\ExampleConverter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Examples\ExampleDataTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Examples\ExampleDevExpressMVVM.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Examples\ExampleMVVM.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Examples\ExampleResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Examples\ExampleStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Examples\ExampleWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

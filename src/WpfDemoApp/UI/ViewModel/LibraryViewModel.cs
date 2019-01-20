@@ -35,7 +35,26 @@ namespace WpfDemoApp.UI.ViewModel
         {
             SaveCommand = new DelegateCommand(SaveCommandExecute, SaveCommandCanExecute);
             DeleteCommand = new DelegateCommand(DeleteCommandExecute, DeleteCommandCanExecute);
+           
+        }
+
+        protected override void OnInitializeInDesignMode()
+        {
+            Books = new ObservableCollection<Book>()
+            {
+                new Book("Test", "Test1", "Hello World", "Author", "Beschreibung"),
+                new Book("Test", "Test2", "Hello World 2", "Author 2", "Beschreibung"),
+                new Book("Test", "Test3", "Hello World 3", "Author 3", "Beschreibung"),
+                new Book("Test", "Test4", "Hello World 4", "Author 4", "Beschreibung"),
+                new Book("Test", "Test5", "Hello World 5", "Author 5", "Beschreibung")
+            };
+            base.OnInitializeInDesignMode();
+        }
+
+        protected override void OnInitializeInRuntime()
+        {
             Books = BookDatabase.GetBooks();
+            base.OnInitializeInRuntime();
         }
 
         public void SaveCommandExecute()
@@ -51,6 +70,8 @@ namespace WpfDemoApp.UI.ViewModel
         public void DeleteCommandExecute()
         {
             MessageBox.Show("Buch gelöscht!");
+            Books.Remove(SelectedBook);
+
         }
 
         public bool DeleteCommandCanExecute()

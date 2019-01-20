@@ -51,6 +51,7 @@
             <Button 
                 Content="Löschen"
                 Command="{Binding DeleteCommand}"
+                CommandParameter="{Binding SelectedBook}"
                 Margin="5" />
         </StackPanel>
     </Grid>

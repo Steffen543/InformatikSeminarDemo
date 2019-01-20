@@ -24,5 +24,38 @@ namespace WpfDemoApp
         {
             InitializeComponent();
         }
+
+        private void ButtonClick(object sender, RoutedEventArgs e)
+        {
+            Button bt = sender as Button;
+
+            switch (bt.Content)
+            {
+                case "ExampleWindow":
+                    new Examples.ExampleWindow().ShowDialog();
+                    break;
+                case "ExampleResource":
+                    new Examples.ExampleResources().ShowDialog();
+                    break;
+                case "ExampleBinding":
+                    new Examples.ExampleBinding().ShowDialog();
+                    break;
+                case "ExampleConverter":
+                    new Examples.ExampleConverter().ShowDialog();
+                    break;
+                case "ExampleStyle":
+                    new Examples.ExampleStyle().ShowDialog();
+                    break;
+                case "ExampleDataTemplate":
+                    new Examples.ExampleDataTemplates().ShowDialog();
+                    break;
+                case "ExampleMVVM":
+                    new Examples.ExampleMVVM().ShowDialog();
+                    break;
+                case "ExampleDevExpressMVVM":
+                    new Examples.ExampleDevExpressMVVM().ShowDialog();
+                    break;
+            }
+        }
     }
 }

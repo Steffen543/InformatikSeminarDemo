@@ -14,7 +14,7 @@
             Text="{Binding Name}" />
         <Label Content="ISBN" />
         <TextBox 
-            Text="{Binding ISBN}" />
+            Text="{Binding ISBN, Mode=TwoWay}" />
         <Label 
             Content="Autor" />
         <TextBox 

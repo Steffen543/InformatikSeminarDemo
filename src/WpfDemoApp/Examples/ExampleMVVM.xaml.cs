@@ -47,6 +47,8 @@ namespace WpfDemoApp.Examples
             Author = author;
             Name = name;
         }
+        
+        public Book() { }
 
     }
 

@@ -21,7 +21,20 @@ namespace WpfDemoApp.Examples
     {
         public ExampleStyle()
         {
+            HandlerTest();
             InitializeComponent();
+        }
+
+        void HandlerTest()
+        {
+            var button = new Button();
+            button.Click += Button_Click;
+            button.Click += (s, e) => { MessageBox.Show("Also clicked"); };
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Clicked");
         }
     }
 }

@@ -65,9 +65,11 @@
     <Compile Include="Examples\Controls\ExampleControl.xaml.cs">
       <DependentUpon>ExampleControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Examples\ExampleBindableBase.cs" />
     <Compile Include="Examples\ExampleBinding.xaml.cs">
       <DependentUpon>ExampleBinding.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Examples\ExampleCommands.cs" />
     <Compile Include="Examples\ExampleConverter.xaml.cs">
       <DependentUpon>ExampleConverter.xaml</DependentUpon>
     </Compile>
@@ -86,6 +88,7 @@
     <Compile Include="Examples\ExampleStyle.xaml.cs">
       <DependentUpon>ExampleStyle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Examples\ExampleViewModelBase.cs" />
     <Compile Include="Examples\ExampleWindow.xaml.cs">
       <DependentUpon>ExampleWindow.xaml</DependentUpon>
     </Compile>
@@ -146,6 +149,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Resources\Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\View\BookView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

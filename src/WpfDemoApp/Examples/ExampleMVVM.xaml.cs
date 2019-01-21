@@ -30,57 +30,15 @@ namespace WpfDemoApp.Examples
         }
     }
 
-    public class Book : INotifyPropertyChanged
+    public class Book
     {
-        private string _isbn;
-        private string _publisher;
-        private string _author;
-        private string _name;
+        public string ISBN { get; set; }
 
-        public string ISBN
-        {
-            get { return _isbn; }
-            set
-            {
-                _isbn = value;
-                OnPropertyChanged();
-            }
-        }
+        public string Publisher { get; set; }
 
-        public string Publisher
-        {
-            get { return _publisher; }
-            set {
-                _publisher = value;
-                OnPropertyChanged();
-            }
-        }
+        public string Author { get; set; }
 
-        public string Author
-        {
-            get { return _author; }
-            set {
-                _author = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public string Name
-        {
-            get { return _name; }
-            set {
-                _name = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        public string Name { get; set; }
 
         public Book(string isbn, string publisher, string author, string name)
         {
@@ -92,10 +50,10 @@ namespace WpfDemoApp.Examples
 
     }
 
-    public class ExampleMvvmViewModel : INotifyPropertyChanged
+    public class ExampleMvvmLibraryViewModel : INotifyPropertyChanged
     {
-        private ObservableCollection<Book> _books;
-        private Book _SelectedBook;
+        private ObservableCollection<ExampleMvvmBookViewModel> _books = new ObservableCollection<ExampleMvvmBookViewModel>();
+        private ExampleMvvmBookViewModel _selectedBook;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -105,7 +63,7 @@ namespace WpfDemoApp.Examples
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public ObservableCollection<Book> Books
+        public ObservableCollection<ExampleMvvmBookViewModel> Books
         {
             get { return _books; }
             set
@@ -115,12 +73,12 @@ namespace WpfDemoApp.Examples
             }
         }
 
-        public Book SelectedBook
+        public ExampleMvvmBookViewModel SelectedBook
         {
-            get { return _SelectedBook; }
+            get { return _selectedBook; }
             set
             {
-                _SelectedBook = value;
+                _selectedBook = value;
                 OnPropertyChanged();
                 SaveCommand.RaiseCanExecuteChanged();
                 DeleteCommand.RaiseCanExecuteChanged();
@@ -130,15 +88,29 @@ namespace WpfDemoApp.Examples
         public ButtonCommand SaveCommand { get; private set; }
         public ButtonCommand DeleteCommand { get; private set; }
 
-        public ExampleMvvmViewModel()
+        public ExampleMvvmLibraryViewModel()
         {
-            Books = BookDatabase.GetExampleBooks();
+            var books = BookDatabase.GetExampleBooks();
+
+            foreach (var book in books)
+            {
+                ExampleMvvmBookViewModel vm = new ExampleMvvmBookViewModel()
+                {
+                    ISBN = book.ISBN,
+                    Author = book.Author,
+                    Name = book.Name,
+                    Publisher = book.Publisher
+                };
+                Books.Add(vm);
+            }
+
             SaveCommand = new ButtonCommand(obj => SaveCommandExecute(), () => SaveCommandCanExecute());
             DeleteCommand = new ButtonCommand(obj => DeleteCommandExecute(), () => DeleteCommandCanExecute());
         }
 
         public void SaveCommandExecute()
         {
+            var book = new Book(SelectedBook.ISBN, SelectedBook.Publisher, SelectedBook.Author, SelectedBook.Name);
             MessageBox.Show("Buch gespeichert!");
         }
 
@@ -161,7 +133,65 @@ namespace WpfDemoApp.Examples
         }
     }
 
-  
+    public class ExampleMvvmBookViewModel : INotifyPropertyChanged
+    {
+
+        private string _isbn;
+        private string _publisher;
+        private string _author;
+        private string _name;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public string ISBN
+        {
+            get { return _isbn; }
+            set
+            {
+                _isbn = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Publisher
+        {
+            get { return _publisher; }
+            set
+            {
+                _publisher = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Author
+        {
+            get { return _author; }
+            set
+            {
+                _author = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                _name = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+    }
+
     public class ButtonCommand : ICommand
     {
         readonly Action<object> _TargetExecuteMethod;

@@ -23,7 +23,7 @@
             SelectedItem="{Binding SelectedBook, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
             ItemsSource="{Binding Books, UpdateSourceTrigger=PropertyChanged}">
             <ListBox.Resources>
-                <DataTemplate DataType="{x:Type model:Book}">
+                <DataTemplate DataType="{x:Type viewModel:BookViewModel}">
                     <StackPanel>
                         <TextBlock Text="{Binding Name}" FontWeight="Bold" />
                         <TextBlock Text="{Binding Author}" FontSize="10" />
@@ -35,7 +35,7 @@
             Grid.Column="1"
             Content="{Binding SelectedBook}">
             <ContentPresenter.Resources>
-                <DataTemplate DataType="{x:Type model:Book}">
+                <DataTemplate DataType="{x:Type viewModel:BookViewModel}">
                     <local:BookView 
                         DataContext="{Binding}"
                         Margin="10"/>

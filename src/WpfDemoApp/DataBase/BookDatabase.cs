@@ -22,6 +22,16 @@ namespace WpfDemoApp.DataBase
             return returnValue;
         }
 
+        public static void DeleteBook(Model.Book book)
+        {
+        }
+
+        public static void SaveBook(Model.Book book)
+        {
+        }
+
+
+
         public static ObservableCollection<Examples.Book> GetExampleBooks()
         {
 

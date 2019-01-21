@@ -9,35 +9,15 @@ namespace WpfDemoApp.Model
 {
     public class Book : BindableBase
     {
-        public string ISBN
-        {
-            get { return GetProperty(() => ISBN); }
-            set { SetProperty(() => ISBN, value); }
-        }
+        public string ISBN { get; set; }
 
-        public string Publisher
-        {
-            get { return GetProperty(() => Publisher); }
-            set { SetProperty(() => Publisher, value); }
-        }
+        public string Publisher { get; set; }
 
-        public string Author
-        {
-            get { return GetProperty(() => Author); }
-            set { SetProperty(() => Author, value); }
-        }
+        public string Author { get; set; }
 
-        public string Name
-        {
-            get { return GetProperty(() => Name); }
-            set { SetProperty(() => Name, value); }
-        }
+        public string Name { get; set; }
 
-        public string Description
-        {
-            get { return GetProperty(() => Description); }
-            set { SetProperty(() => Description, value); }
-        }
+        public string Description { get; set; }
 
         public Book(string isbn, string publisher, string name, string author, string description)
         {

@@ -90,6 +90,7 @@
       <DependentUpon>ExampleWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="UI\ViewModel\BookViewModel.cs" />
     <Compile Include="UI\ViewModel\LibraryViewModel.cs" />
     <Compile Include="UI\View\BookView.xaml.cs">
       <DependentUpon>BookView.xaml</DependentUpon>

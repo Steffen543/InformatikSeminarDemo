@@ -10,7 +10,7 @@
         mc:Ignorable="d"
         Title="ExampleMVVM" Height="450" Width="800">
     <Window.DataContext>
-        <local:ExampleMvvmViewModel x:Name="ExampleMvvmViewModel" />
+        <local:ExampleMvvmLibraryViewModel />
     </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -24,7 +24,7 @@
             SelectedItem="{Binding SelectedBook, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
             ItemsSource="{Binding Books, UpdateSourceTrigger=PropertyChanged}">
             <ListBox.Resources>
-                <DataTemplate DataType="{x:Type local:Book}">
+                <DataTemplate DataType="{x:Type local:ExampleMvvmBookViewModel}">
                     <StackPanel>
                         <TextBlock Text="{Binding Name}" FontWeight="Bold" />
                         <TextBlock Text="{Binding Author}" FontSize="10" />
@@ -36,7 +36,7 @@
             Grid.Column="1"
             Content="{Binding SelectedBook}">
             <ContentPresenter.Resources>
-                <DataTemplate DataType="{x:Type local:Book}">
+                <DataTemplate DataType="{x:Type local:ExampleMvvmBookViewModel}">
                     <StackPanel 
                         HorizontalAlignment="Left">
                         <Label 
@@ -54,8 +54,6 @@
                             Content="Publisher" />
                         <TextBox 
                             Text="{Binding Publisher}" />
-                        <Label 
-                            Content="Beschreibung" />
                     </StackPanel>
                 </DataTemplate>
             </ContentPresenter.Resources>

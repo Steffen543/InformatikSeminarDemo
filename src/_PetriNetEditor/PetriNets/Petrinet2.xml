@@ -1,0 +1,269 @@
+<?xml version="1.0"?>
+<pnml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net>
+    <name>
+      <text>processes_0_1_min_lang.dot</text>
+    </name>
+    <page>
+      <arc id="in_p111_t_3_a_1" source="p111" target="t_3_a_1">
+        <position X="419.64285714285711" Y="60" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="out_t_2_b_1_p122" source="t_2_b_1" target="p122">
+        <position X="60" Y="850" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="in_p121_t_2_b_1" source="p121" target="t_2_b_1">
+        <position X="287.1153846153847" Y="250" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="out_t_2_b_1_p113" source="t_2_b_1" target="p113">
+        <position X="60" Y="850" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="in_p112_t_2_b_1" source="p112" target="t_2_b_1">
+        <position X="60" Y="1040" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="out_t_1_b_1_p113" source="t_1_b_1" target="p113">
+        <position X="940" Y="1040" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="in_p112_t_1_b_1" source="p112" target="t_1_b_1">
+        <position X="60" Y="1040" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="out_t_1_b_1_p122" source="t_1_b_1" target="p122">
+        <position X="940" Y="1040" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="in_p122_t_1_b_1" source="p122" target="t_1_b_1">
+        <position X="940" Y="425.4142857142856" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="out_t_0__p111" source="t_0_" target="p111">
+        <position X="60" Y="60" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="in_p110_t_0_" source="p110" target="t_0_">
+        <position X="150" Y="180" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="out_t_0__p121" source="t_0_" target="p121">
+        <position X="60" Y="60" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="in_p120_t_0_" source="p120" target="t_0_">
+        <position X="60" Y="200" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="out_t_6_d_1_p111" source="t_6_d_1" target="p111">
+        <position X="940" Y="60" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="in_p111_t_6_d_1" source="p111" target="t_6_d_1">
+        <position X="419.64285714285711" Y="60" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="out_t_6_d_1_p121" source="t_6_d_1" target="p121">
+        <position X="940" Y="60" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="in_p122_t_6_d_1" source="p122" target="t_6_d_1">
+        <position X="940" Y="425.4142857142856" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="out_t_5_d_1_p121" source="t_5_d_1" target="p121">
+        <position X="745.83333333333326" Y="350" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="in_p122_t_5_d_1" source="p122" target="t_5_d_1">
+        <position X="940" Y="425.4142857142856" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="out_t_5_d_1_p111" source="t_5_d_1" target="p111">
+        <position X="745.83333333333326" Y="350" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="in_p114_t_5_d_1" source="p114" target="t_5_d_1">
+        <position X="60" Y="350" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="out_t_4_c_1_p114" source="t_4_c_1" target="p114">
+        <position X="60" Y="540.75454545454556" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="in_p113_t_4_c_1" source="p113" target="t_4_c_1">
+        <position X="60" Y="669.84545454545469" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="out_t_3_a_1_p112" source="t_3_a_1" target="p112">
+        <position X="413.40909090909088" Y="850" />
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <place id="p121">
+        <position X="287.1153846153847" Y="250" />
+        <name>
+          <text>121</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="p110">
+        <position X="150" Y="180" />
+        <name>
+          <text>110</text>
+        </name>
+        <initialMarking>
+          <text>0</text>
+        </initialMarking>
+      </place>
+      <place id="p114">
+        <position X="60" Y="350" />
+        <name>
+          <text>114</text>
+        </name>
+        <initialMarking>
+          <text>0</text>
+        </initialMarking>
+      </place>
+      <place id="p120">
+        <position X="60" Y="200" />
+        <name>
+          <text>120</text>
+        </name>
+        <initialMarking>
+          <text>0</text>
+        </initialMarking>
+      </place>
+      <place id="p111">
+        <position X="419.64285714285711" Y="60" />
+        <name>
+          <text>111</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="p113">
+        <position X="60" Y="669.84545454545469" />
+        <name>
+          <text>113</text>
+        </name>
+        <initialMarking>
+          <text>0</text>
+        </initialMarking>
+      </place>
+      <place id="p122">
+        <position X="940" Y="425.4142857142856" />
+        <name>
+          <text>122</text>
+        </name>
+        <initialMarking>
+          <text>0</text>
+        </initialMarking>
+      </place>
+      <place id="p112">
+        <position X="60" Y="1040" />
+        <name>
+          <text>112</text>
+        </name>
+        <initialMarking>
+          <text>0</text>
+        </initialMarking>
+      </place>
+      <transition id="t_6_d_1" IsExecutable="false">
+        <Description>fafafafafaf</Description>
+        <position X="940" Y="60" />
+        <name>
+          <text>d_1</text>
+        </name>
+      </transition>
+      <transition id="t_0_" IsExecutable="false">
+        <position X="60" Y="60" />
+        <name>
+          <text />
+        </name>
+      </transition>
+      <transition id="t_1_b_1" IsExecutable="false">
+        <position X="940" Y="1040" />
+        <name>
+          <text>b_1</text>
+        </name>
+      </transition>
+      <transition id="t_2_b_1" IsExecutable="false">
+        <position X="60" Y="850" />
+        <name>
+          <text>b_1</text>
+        </name>
+      </transition>
+      <transition id="t_3_a_1" IsExecutable="true">
+        <position X="413.40909090909088" Y="850" />
+        <name>
+          <text>a_1</text>
+        </name>
+      </transition>
+      <transition id="t_4_c_1" IsExecutable="false">
+        <position X="60" Y="540.75454545454556" />
+        <name>
+          <text>c_111333331313131313</text>
+        </name>
+      </transition>
+      <transition id="t_5_d_1" IsExecutable="false">
+        <position X="745.83333333333326" Y="350" />
+        <name>
+          <text>d_177</text>
+        </name>
+      </transition>
+    </page>
+  </net>
+</pnml>

@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="Petri.Editor.UI.View.EditorToolsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             x:Name="self" 
+             d:DataContext="{d:DesignInstance viewModel:EditorViewModel}"
+             xmlns:converter="clr-namespace:Petri.Editor.Converter"
+             xmlns:viewModel="clr-namespace:Petri.Editor.UI.ViewModel"
+             xmlns:controls="clr-namespace:Petri.Editor.Controls"
+             xmlns:components="clr-namespace:Petri.Logic.Components;assembly=Petri.Logic"
+             xmlns:information="clr-namespace:Petri.Editor.UI.View.Information"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converter:IsNullConverter x:Key="IsNullConverter"/>
+        <converter:EnumDescriptionConverter x:Key="EnumDescriptionConverter" />
+        <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type viewModel:EditorMode}"  x:Key="MyEnumValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="viewModel:EditorMode" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <Style TargetType="RadioButton">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Foreground" Value="Black" />
+        </Style>
+    </UserControl.Resources>
+    <UserControl.Style>
+        <Style TargetType="UserControl">
+            <Setter Property="IsEnabled" Value="True" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding PnmlNet, Converter={StaticResource IsNullConverter}}" Value="True">
+                    <Setter Property="IsEnabled" Value="false" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Style>
+
+    <StackPanel Margin="10">
+
+       
+
+        <ListBox x:Name="ListBoxTools" ItemsSource="{Binding Source={StaticResource MyEnumValues}}" SelectedItem="{Binding EditorMode}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock FontSize="18" Text="{Binding Converter={StaticResource EnumDescriptionConverter}}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+
+      
+        <StackPanel Orientation="Vertical" Margin="0,5,0,0" >
+
+            <Slider x:Name="ZoomSlider" Width="200" 
+                    Minimum="0.25" 
+                    Value="1"
+                    Maximum="1.5"
+                    SmallChange="0.5"
+                    LargeChange="1.0" />
+            <TextBlock HorizontalAlignment="Center">
+                <Run Text="Zoom: "/>
+                <Run Text="{Binding Value, ElementName=ZoomSlider, StringFormat=p0}"/>
+            </TextBlock>
+
+        </StackPanel>
+
+        <Border Padding="10" Margin="0,15,0,0" BorderThickness="1" BorderBrush="{Binding ElementName=ListBoxTools, Path=BorderBrush}">
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                    <Style.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding CurrentInformationEntry, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IsNullConverter}}" Value="False" />
+                                <Condition Binding="{Binding  EditorMode, UpdateSourceTrigger=PropertyChanged}" Value="Edit" />
+                            </MultiDataTrigger.Conditions>
+                            <MultiDataTrigger.Setters>
+                                <Setter Property="Visibility" Value="Visible" />
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+       
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+           
+            <ContentPresenter HorizontalAlignment="Left" Content="{Binding CurrentInformationEntry}">
+                <ContentPresenter.Resources>
+                    <DataTemplate DataType="{x:Type components:Transition}">
+                        <information:TransitionInformationView DataContext="{Binding .}" />
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type components:Place}">
+                        <information:PlaceInformationView DataContext="{Binding .}" />
+                    </DataTemplate>
+                </ContentPresenter.Resources>
+            </ContentPresenter>
+            
+        </Border>
+    </StackPanel>
+        
+
+    
+</UserControl>

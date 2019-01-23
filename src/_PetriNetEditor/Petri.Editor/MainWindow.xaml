@@ -1,0 +1,57 @@
+﻿<Window x:Class="Petri.Editor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Petri.Editor"
+        xmlns:view="clr-namespace:Petri.Editor.UI.View" d:DataContext="{d:DesignInstance viewModel:MainWindowViewModel}"
+        xmlns:viewModel="clr-namespace:Petri.Editor.UI.ViewModel"
+        xmlns:converter="clr-namespace:Petri.Editor.Converter"
+        mc:Ignorable="d" WindowState="Maximized"
+        Height="750" Width="1200">
+    <Window.Resources>
+        <converter:IsNullConverter x:Key="IsNullConverter" />
+    </Window.Resources>
+    <Window.Style>
+        <Style TargetType="Window">
+            <Setter Property="Title" Value="Petri-Netz Editor" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsSaved, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                    <Setter Property="Title" Value="{Binding CurrentFileName}" />
+                </DataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding IsSaved, UpdateSourceTrigger=PropertyChanged}" Value="False" />
+                        <Condition Binding="{Binding CurrentPnmlNet, Converter={StaticResource IsNullConverter}}" Value="False" />
+                    </MultiDataTrigger.Conditions>
+                    <MultiDataTrigger.Setters>
+                        <Setter Property="Title" Value="Ungespeichertes Petri-Netz"></Setter>
+                    </MultiDataTrigger.Setters>
+                </MultiDataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Style>
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Ctrl" Key="S" Command="{Binding SavePetriNetCommand}"/>
+        <KeyBinding Key="Escape" Command="{Binding EditorViewModel.CancelCommand}"/>
+    </Window.InputBindings>
+    <Window.DataContext>
+        <viewModel:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+           
+            <MenuItem Header="Datei">
+                <MenuItem Header="Neu" Command="{Binding CreateNewPetriNetCommand}" />
+                <MenuItem Header="Öffnen" Command="{Binding OpenPetriNetFileCommand}"  />
+                <MenuItem Header="Speichern" Command="{Binding SavePetriNetCommand}" />
+                <MenuItem Header="Speichern unter" Command="{Binding SavePetriNetUnderNewNameCommand}" />
+            </MenuItem>
+        </Menu>
+        <view:PetriNetEditorView x:Name="PetriEditor" DataContext="{Binding .}" Grid.Row="1" />
+    </Grid>
+</Window>
